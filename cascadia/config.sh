@@ -30,9 +30,9 @@ config() {
 print_color $Blue "Yapılandırma Dosyası Ayarları Yapılıyor..."
 exec > /dev/null 2>&1
 #genesis
-curl -s https://raw.githubusercontent.com/molla202/Cascadia-11029-devnet/main/genesis.json > $HOME/.cascadiad/config/genesis.json
+curl -s https://raw.githubusercontent.com/Core-Node-Team/scripts/main/cascadia/genesis.json > $HOME/.cascadiad/config/genesis.json
 #addrbook
-curl -s https://raw.githubusercontent.com/molla202/Cascadia-11029-devnet/main/addrbook.json > $HOME/.cascadiad/config/addrbook.json
+curl -s https://raw.githubusercontent.com/Core-Node-Team/scripts/main/cascadia/addrbook.json > $HOME/.cascadiad/config/addrbook.json
 #seed-peers
 SEEDS=""
 PEERS="21ca2712116138429aed3d72422379397c53fa86@65.109.65.248:34656"
