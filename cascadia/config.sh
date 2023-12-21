@@ -39,6 +39,7 @@ PEERS="21ca2712116138429aed3d72422379397c53fa86@65.109.65.248:34656"
 sed -i 's|^seeds *=.*|seeds = "'$SEEDS'"|; s|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.cascadiad/config/config.toml
 
 #min gas prices command
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025aCC\"/" ~/.cascadiad/config/app.toml
 
 # puruning
 sed -i \
