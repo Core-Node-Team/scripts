@@ -11,6 +11,6 @@ install_binary
 init
 config
 snapshot
-service
+cosmovisor
 lastinfo
 source $HOME/.bash_profile
