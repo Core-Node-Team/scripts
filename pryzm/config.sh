@@ -15,6 +15,7 @@ tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
 mv pryzmd $HOME/go/bin
 source $HOME/.bash_profile
 exec > /dev/tty 2>&1
+source $HOME/.bash_profile
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
 }
