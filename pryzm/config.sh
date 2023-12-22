@@ -8,13 +8,25 @@ ChainID="indigo-1"
 install_binary() {
 print_color $Blue "$BinaryName Kuruluyor..."
 sleep 1
-exec > /dev/null 2>&1
 cd $HOME
-wget https://storage.googleapis.com/pryzm-resources/pryzmd-0.9.0-linux-amd64.tar.gz
-tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
-mv pryzmd $HOME/go/bin
-source $HOME/.bash_profile
-exec > /dev/tty 2>&1
+
+MIMARI=$(uname -m)
+
+if [ "$MIMARI" = "x86_64" ]; then
+    # AMD64 mimarisi için
+    wget https://storage.googleapis.com/pryzm-zone/pryzmd-0.9.0-darwin-amd64.tar.gz
+    tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
+    rm -rf pryzmd-0.9.0-linux-amd64.tar.gz
+    mkdir -p $HOME/go/bin
+    mv pryzmd $HOME/go/bin
+elif [ "$MIMARI" = "aarch64" ]; then
+    # ARM64 mimarisi için
+    wget https://storage.googleapis.com/pryzm-zone/pryzmd-0.9.0-darwin-arm64.tar.gz
+    tar -xzvf pryzmd-0.9.0-darwin-arm64.tar.gz
+    rm -rf pryzmd-0.9.0-darwin-arm64.tar.gz
+    mkdir -p $HOME/go/bin
+    mv pryzmd $HOME/go/bin
+    exit 1
 source $HOME/.bash_profile
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
