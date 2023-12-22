@@ -15,8 +15,8 @@ MIMARI=$(uname -m)
 if [ "$MIMARI" = "x86_64" ]; then
     # AMD64 mimarisi için
     wget https://storage.googleapis.com/pryzm-zone/pryzmd-0.9.0-darwin-amd64.tar.gz
-    tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
-    rm -rf pryzmd-0.9.0-linux-amd64.tar.gz
+    tar -xzvf pryzmd-0.9.0-darwin-amd64.tar.gz
+    rm -rf pryzmd-0.9.0-darwin-amd64.tar.gz
     mkdir -p $HOME/go/bin
     mv pryzmd $HOME/go/bin
 elif [ "$MIMARI" = "aarch64" ]; then
