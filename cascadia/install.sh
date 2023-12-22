@@ -8,6 +8,7 @@ get_moniker
 removenode
 prepare_server
 install_binary
+source $HOME/.bash_profile
 init
 config
 snapshot
