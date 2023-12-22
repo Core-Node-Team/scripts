@@ -13,6 +13,7 @@ git clone https://github.com/althea-net/althea-chain
 cd althea-chain
 git checkout v0.5.5
 make install
+source $HOME/.bash_profile
 exec > /dev/tty 2>&1
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
