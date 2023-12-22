@@ -13,6 +13,7 @@ cd $HOME
 wget https://storage.googleapis.com/pryzm-resources/pryzmd-0.9.0-linux-amd64.tar.gz
 tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
 mv pryzmd $HOME/go/bin
+source $HOME/.bash_profile
 exec > /dev/tty 2>&1
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
