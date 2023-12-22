@@ -12,6 +12,7 @@ git clone https://github.com/elys-network/elys.git
 cd elys
 git checkout v0.18.0
 make install
+source $HOME/.bash_profile
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
 }
