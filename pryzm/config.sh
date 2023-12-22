@@ -26,7 +26,7 @@ elif [ "$MIMARI" = "aarch64" ]; then
     rm -rf pryzmd-0.9.0-darwin-arm64.tar.gz
     mkdir -p $HOME/go/bin
     mv pryzmd $HOME/go/bin
-    exit 1
+fi
 source $HOME/.bash_profile
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
