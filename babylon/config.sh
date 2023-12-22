@@ -12,6 +12,7 @@ git clone https://github.com/babylonchain/babylon.git
 cd babylon
 git checkout v0.7.2
 make install
+source $HOME/.bash_profile
 exec > /dev/tty 2>&1
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
