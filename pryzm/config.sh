@@ -43,7 +43,7 @@ exec > /dev/null 2>&1
 curl -Ls https://raw.githubusercontent.com/Core-Node-Team/scripts/main/pryzm/addrbook.json > $HOME/$DirectName/config/addrbook.json
 curl -Ls https://raw.githubusercontent.com/Core-Node-Team/scripts/main/pryzm/genesis.json > $HOME/$DirectName/config/genesis.json
 peers="713307ce72306d9e86b436fc69a03a0ab96b678f@pryzm-testnet-peer.itrocket.net:41656,4af5be7666e9ee756a9a588c181f9631064b9cf8@37.27.55.69:26656,5d9bcb33eef94e045fe51105c89f5d77709b3183@144.76.101.167:5000,9515a13bbdeb233eb59efd6e8db892ac46e5bac5@142.132.153.6:56656,f9ade689abb3c59d3e3d8edf26c65bde3db58676@116.202.85.52:35656,7397a1bcbf413b76bd710fcf363f8259acdc4d29@144.91.84.168:23256,db0e0cff276b3292804474eb8beb83538acf77f5@195.14.6.192:26656,794b538577a59f789ce942fd393730da3e8c0ffe@34.65.224.175:26656,565e54f6b12672fba48861fc72654c39dc0f2d97@195.3.223.138:36656,cdcd86ca01858275d0e78ee66b82109ee06df454@65.108.72.253:40656,2c7bb6ad931b0b2b24a0d8e6b7b5e0636b8bafb0@38.242.230.118:48656"
-seeds="fbfd48af73cd1f6de7f9102a0086ac63f46fb911@pryzm-testnet-seed.itrocket.net:41656"
+seeds="ff17ca4f46230306412ff5c0f5e85439ee5136f0@testnet-seed.pryzm.zone:26656,fbfd48af73cd1f6de7f9102a0086ac63f46fb911@pryzm-testnet-seed.itrocket.net:41656"
 sed -i -e 's|^seeds *=.*|seeds = "'$seeds'"|; s|^persistent_peers *=.*|persistent_peers = "'$peers'"|' $HOME/$DirectName/config/config.toml
 sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.015upryzm\"|" $HOME/.pryzm/config/app.toml
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.pryzm/config/config.toml
