@@ -12,9 +12,10 @@ exec > /dev/null 2>&1
 cd $HOME || return
 rm -rf $HOME/cascadia
 git clone https://github.com/cascadiafoundation/cascadia.git
-cd $HOME/cascadia || return
-git checkout v0.1.9
+cd $HOME/cascadia
+git checkout v0.2.0
 make install
+source $HOME/.bash_profile
 exec > /dev/tty 2>&1
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
