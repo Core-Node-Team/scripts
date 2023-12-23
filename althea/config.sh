@@ -9,9 +9,12 @@ install_binary() {
 print_color $Blue "$BinaryName Kuruluyor..."
 sleep 1
 exec > /dev/null 2>&1
-mkdir -p $HOME/go/bin
-wget -O $HOME/go/bin/althea https://github.com/althea-net/althea-L1/releases/download/v0.5.5/althea-linux-amd64
-chmod +x $HOME/go/bin/althea
+apt install npm
+cd $HOME
+rm -rf althea-L1
+git clone https://github.com/althea-net/althea-L1
+cd althea-L1
+make install
 source $HOME/.bash_profile
 exec > /dev/tty 2>&1
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
