@@ -19,7 +19,7 @@ sleep 1
 
 snapshot() {
 print_color $Blue "Snapshot İndiriliyor..."
-curl -L http://37.120.189.81/elys_testnet/elys_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.elys/data
+curl -L http://37.120.189.81/elys_testnet/elys_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.elys
 }
 
 config() {
