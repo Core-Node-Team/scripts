@@ -9,6 +9,7 @@ install_binary() {
 print_color $Blue "$BinaryName Kuruluyor..."
 sleep 1
 exec > /dev/null 2>&1
+mkdir -p $HOME/go/bin
 wget -O $HOME/go/bin/althea https://github.com/althea-net/althea-L1/releases/download/v0.5.5/althea-linux-amd64
 chmod +x $HOME/go/bin/althea
 source $HOME/.bash_profile
