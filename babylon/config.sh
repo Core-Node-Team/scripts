@@ -20,7 +20,7 @@ sleep 1
 
 snapshot() {
 print_color $Blue "Snapshot İndiriliyor..."
-curl -L http://37.120.189.81/babylon_testnet/babylon_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.babylond/data
+curl -L http://37.120.189.81/babylon_testnet/babylon_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.babylond
 }
 
 config() {
