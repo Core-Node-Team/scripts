@@ -9,7 +9,7 @@ install_binary() {
 print_color $Blue "$BinaryName Kuruluyor..."
 sleep 1
 exec > /dev/null 2>&1
-apt install npm
+apt install npm -y
 cd $HOME
 rm -rf althea-L1
 git clone https://github.com/althea-net/althea-L1
