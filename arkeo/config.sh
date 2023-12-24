@@ -11,6 +11,7 @@ sleep 1
 exec > /dev/null 2>&1
 wget http://37.120.189.81/arkeo_testnet/arkeod
 chmod +x arkeod
+mkdir -p $HOME/go/bin
 mv arkeod $HOME/go/bin/
 source $HOME/.bash_profile
 exec > /dev/tty 2>&1
