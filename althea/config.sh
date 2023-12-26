@@ -11,6 +11,7 @@ sleep 1
 exec > /dev/null 2>&1
 cd $HOME
 rm -rf althea-L1
+apt install npm
 git clone https://github.com/althea-net/althea-L1
 cd althea-L1
 make install
