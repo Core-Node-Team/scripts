@@ -9,9 +9,29 @@ print_color $Green "Düğüm belirtilen blok yüksekliğine ulaştı. Güncellem
 sudo systemctl stop pryzmd
 
 
+MIMARI=$(uname -m)
+
+if [ "$MIMARI" = "x86_64" ]; then
+    # AMD64 mimarisi için
+    wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-amd64
+    tar -xzvf pryzmd-0.9.0-linux-amd64.tar.gz
+    rm -rf pryzmd-0.9.0-linux-amd64.tar.gz
+    mv pryzmd $(which pryzmd)
+elif [ "$MIMARI" = "aarch64" ]; then
+    # ARM64 mimarisi için
+    wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-arm64
+    tar -xzvf pryzmd-0.9.0-linux-arm64.tar.gz
+    rm -rf pryzmd-0.9.0-linux-arm64.tar.gz
+    mv pryzmd $(which pryzmd)
+fi
+source $HOME/.bash_profile
+sleep 1
+}
+
 sudo systemctl start pryzmd
 sleep 2
 sudo systemctl restart pryzmd
+
 print_color $Blue "Güncelleme tamamldandı. Version: $(pryzmd version)" sleep 1
 print_color $Blue "Logları takip edin:         sudo journalctl -u pryzmd -fo cat" sleep 1
 }
