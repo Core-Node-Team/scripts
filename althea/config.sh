@@ -8,7 +8,6 @@ ChainID="althea_417834-3"
 install_binary() {
 print_color $Blue "$BinaryName Kuruluyor..."
 sleep 1
-exec > /dev/null 2>&1
 cd $HOME
 rm -rf althea-L1
 apt install npm
@@ -16,7 +15,6 @@ git clone https://github.com/althea-net/althea-L1
 cd althea-L1
 make install
 source $HOME/.bash_profile
-exec > /dev/tty 2>&1
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
 sleep 1
 }
