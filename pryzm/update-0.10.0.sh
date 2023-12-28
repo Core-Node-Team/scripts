@@ -10,15 +10,13 @@ MIMARI=$(uname -m)
 if [ "$MIMARI" = "x86_64" ]; then
     # AMD64 mimarisi için
     wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-amd64
-    tar -xzvf pryzmd-0.10.0-linux-amd64
-    rm -rf pryzmd-0.10.0-linux-amd64
-    mv pryzmd $(which pryzmd)
+    chmod +x pryzmd-0.10.0-linux-amd64
+    mv pryzmd-0.10.0-linux-amd64 $(which pryzmd)
 elif [ "$MIMARI" = "aarch64" ]; then
     # ARM64 mimarisi için
     wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-arm64
-    tar -xzvf pryzmd-0.10.0-linux-arm64
-    rm -rf pryzmd-0.10.0-linux-arm64
-    mv pryzmd $(which pryzmd)
+    chmod +x pryzmd-0.10.0-linux-arm64
+    mv pryzmd-0.10.0-linux-arm64pryzmd $(which pryzmd)
 fi
 source $HOME/.bash_profile
 sudo systemctl start pryzmd
