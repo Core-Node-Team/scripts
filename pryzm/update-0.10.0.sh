@@ -25,13 +25,9 @@ elif [ "$MIMARI" = "aarch64" ]; then
     mv pryzmd $(which pryzmd)
 fi
 source $HOME/.bash_profile
-sleep 1
-}
-
 sudo systemctl start pryzmd
 sleep 2
 sudo systemctl restart pryzmd
-
 print_color $Blue "Güncelleme tamamldandı. Version: $(pryzmd version)" sleep 1
 print_color $Blue "Logları takip edin:         sudo journalctl -u pryzmd -fo cat" sleep 1
 }
