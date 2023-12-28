@@ -17,13 +17,15 @@ if [ "$MIMARI" = "x86_64" ]; then
     wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-amd64
     chmod +x pryzmd-0.10.0-linux-amd64
     mkdir -p $HOME/go/bin
-    mv pryzmd-0.10.0-linux-amd64 $HOME/go/bin
+    mv pryzmd-0.10.0-linux-amd64 $HOME/go/bin/pryzmd
+    source $HOME/.bash_profile
 elif [ "$MIMARI" = "aarch64" ]; then
     # ARM64 mimarisi için
     wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-arm64
     chmod +x pryzmd-0.10.0-linux-arm64
     mkdir -p $HOME/go/bin
-    mv pryzmd-0.10.0-linux-arm64 $HOME/go/bin
+    mv pryzmd-0.10.0-linux-arm64 $HOME/go/bin/pryzmd
+    source $HOME/.bash_profile
 fi
 source $HOME/.bash_profile
 print_color $Yellow "$BinaryName $($BinaryName version) Kuruldu."
