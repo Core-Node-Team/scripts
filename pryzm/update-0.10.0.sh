@@ -42,6 +42,6 @@ while true; do
     else
         print_color $Yellow "Düğüm henüz beklenen blok yüksekliğine ulaşmadı($(pryzmd status 2>&1 | jq -r .SyncInfo.latest_block_height)) Bekleniyor..."
     fi
-    sleep 1
+    sleep 2
 done
 source $HOME/.bash_profile
