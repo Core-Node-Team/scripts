@@ -28,7 +28,6 @@ print_color $Blue "Güncelleme tamamldandı. Version: $(pryzmd version)" sleep 1
 print_color $Blue "Logları takip edin:         sudo journalctl -u pryzmd -fo cat" sleep 1
 }
 curl -sSL https://raw.githubusercontent.com/0xSocrates/Scripts/main/core-node.sh | bash
-echo -e ""
 print_color $PURPLE "Current Version: $(pryzmd version)"
 print_color $PURPLE "Update Version: 0.10.0"
 print_color $PURPLE "Update Height: $HedefBlok"
