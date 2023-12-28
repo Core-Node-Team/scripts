@@ -29,10 +29,10 @@ print_color $Blue "Logları takip edin:         sudo journalctl -u pryzmd -fo ca
 }
 curl -sSL https://raw.githubusercontent.com/0xSocrates/Scripts/main/core-node.sh | bash
 echo -e ""
-echo -e "Current Version: $(pryzmd version)"
-echo -e "Update Version: 0.10.0"
-echo -e "Update Height: $HedefBlok"
-echo -e "Current Height: $(pryzmd status 2>&1 | jq -r .SyncInfo.latest_block_height)"
+print_color $PURPLE "Current Version: $(pryzmd version)"
+print_color $PURPLE "Update Version: 0.10.0"
+print_color $PURPLE "Update Height: $HedefBlok"
+print_color $PURPLE "Current Height: $(pryzmd status 2>&1 | jq -r .SyncInfo.latest_block_height)"
 echo -e ""
 while true; do
     latest_block_height=$(pryzmd status 2>&1 | jq -r .SyncInfo.latest_block_height)
