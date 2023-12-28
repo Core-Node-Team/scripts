@@ -32,7 +32,7 @@ sleep 1
 
 snapshot() {
 print_color $Blue "Snapshot İndiriliyor..."
-curl -L http://37.120.189.81/pryzm_testnet/pryzm_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.pryzm
+curl -L http://37.120.189.81/pryzm_testnet/pryzm_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.pryzm/data
 }
 
 config() {
