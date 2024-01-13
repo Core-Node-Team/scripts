@@ -1,16 +1,18 @@
-BinaryName="babylond"
-DirectName=".babylond" #database directory
-CustomPort="311"
-NodeName="babylon"  # project folder
-ChainID="bbn-test-2"
+BinaryName="artelad"
+DirectName=".artelad" #database directory
+CustomPort="317"
+NodeName="artela"  # project folder
+ChainID="artela_11822-1"
 
 install_binary() {
 print_color $Blue "$BinaryName Kuruluyor..."
 sleep 1
 exec > /dev/null 2>&1
-git clone https://github.com/babylonchain/babylon.git
-cd babylon
-git checkout v0.7.2
+cd $HOME
+rm -rf artela
+git clone https://github.com/artela-network/artela
+cd artela
+git checkout v0.4.7-rc4
 make install
 source $HOME/.bash_profile
 exec > /dev/tty 2>&1
@@ -20,19 +22,19 @@ sleep 1
 
 snapshot() {
 print_color $Blue "Snapshot İndiriliyor..."
-curl -L http://37.120.189.81/babylon_testnet/babylon_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.babylond
+curl -L http://37.120.189.81/artela_testnet/artela_snap.tar.lz4 | tar -I lz4 -xf - -C $HOME/.artelad
 }
 
 config() {
 print_color $Blue "Yapılandırma Dosyası Ayarları Yapılıyor..."
 exec > /dev/null 2>&1
-curl -Ls https://raw.githubusercontent.com/Core-Node-Team/scripts/main/babylon/addrbook.json > $HOME/$DirectName/config/addrbook.json
-curl -Ls https://raw.githubusercontent.com/Core-Node-Team/scripts/main/babylon/genesis.json > $HOME/$DirectName/config/genesis.json
-peers="603f5e1d2b796e125265b975135e1780e080e8fd@138.201.204.5:37656,07d1b69e4dc56d46dabe8f5eb277fcde0c6c9d1e@23.88.5.169:17656,0a0d7d245ea67cfeec7d000085260fbe695544f4@207.180.251.220:11656,924632d809935a2ba6035df0dd3a787dde7b788c@144.76.201.43:26356,1016bb6d890ffafe49eb8b2264937bdbcd775135@46.4.5.45:20656,4c4a3cffbbad5e12c2f4d1ee85f6a94eb271ae21@65.109.90.171:32656,d5519e378247dfb61dfe90652d1fe3e2b3005a5b@65.109.68.190:16456,37896797924b1cb18bce9b9542ba3da915a85038@18.218.71.198:26656,ec92965f98006978a470642a9e02f971fb4a70c6@18.119.146.153:26656,0de44b3d4380004838d38797a1aee10392b68420@3.18.176.128:26656"
-seeds=""
-sed -i -e 's|^seeds *=.*|seeds = "'$seeds'"|; s|^persistent_peers *=.*|persistent_peers = "'$peers'"|' $HOME/$DirectName/config/config.toml
+curl -Ls https://raw.githubusercontent.com/Core-Node-Team/scripts/main/artela/addrbook.json > $HOME/$DirectName/config/addrbook.json
+curl -Ls https://raw.githubusercontent.com/Core-Node-Team/scripts/main/artela/genesis.json > $HOME/$DirectName/config/genesis.json
+SEEDS=""
+PEERS="a996136dcb9f63c7ddef626c70ef488cc9e263b8@144.217.68.182:22256,de5612c035bd1875f0bd36d7cbf5d660b0d1e943@5.78.64.11:26656,bec6934fcddbac139bdecce19f81510cb5e02949@47.254.24.106:26656,30fb0055aced21472a01911353101bc4cd356bb3@47.89.230.117:26656,a03ae11a093c67e2554b73d174c4168fe715af10@57.128.103.184:26656,146d6011cce0423f564c9277c6a3390657c53730@157.90.226.23:26656,0188a9bcff4f411b29dbddda527d77803396e1c6@185.245.182.180:26656,b23bc610c374fd071c20ce4a2349bf91b8fbd7db@65.108.72.233:11656,aa416d3628dcce6e87d4b92d1867c8eca36a70a7@47.254.93.86:26656,978dee673bd447147f61aa5a1bdaabdfb8f8b853@47.88.57.107:26656,35ce36af33e289a29787eedb3127d21bf10edcff@81.0.218.194:45656,32d0e4aec8d8a8e33273337e1821f2fe2309539a@47.88.58.36:26656,1b73ac616d74375932fb6847ec67eee4a98174e9@116.202.85.52:25556,9e2fbfc4b32a1b013e53f3fc9b45638f4cddee36@47.254.66.177:26656,b23bc610c374fd071c20ce4a2349bf91b8fbd7db@65.108.72.233:11656,30fb0055aced21472a01911353101bc4cd356bb3@47.89.230.117:26656,9e2fbfc4b32a1b013e53f3fc9b45638f4cddee36@47.254.66.177:26656,978dee673bd447147f61aa5a1bdaabdfb8f8b853@47.88.57.107:26656,aa416d3628dcce6e87d4b92d1867c8eca36a70a7@47.254.93.86:26656"
+sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.artelad/config/config.toml
 # min gas price
-sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.00001ubbn\"|" $HOME/.babylond/config/app.toml
+sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.025art"|g' $HOME/.artelad/config/app.toml
 
 
 # puruning
