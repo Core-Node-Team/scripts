@@ -14,10 +14,11 @@ MIMARI=$(uname -m)
 
 if [ "$MIMARI" = "x86_64" ]; then
     # AMD64 mimarisi için
-    wget https://storage.googleapis.com/pryzm-zone/core/0.10.0/pryzmd-0.10.0-linux-amd64
-    chmod +x pryzmd-0.10.0-linux-amd64
+    wget https://storage.googleapis.com/pryzm-zone/core/0.11.1/pryzmd-0.11.1-linux-amd64?checksum=sha256:92d6fc71dfb49f355881915a14a8d9b5a11ac41ab89b6873191e0a56c9be4ce2
+    chmod +x pryzmd-0.11.1-linux-amd64?checksum=sha256:92d6fc71dfb49f355881915a14a8d9b5a11ac41ab89b6873191e0a56c9be4ce2
+    mv pryzmd-0.11.1-linux-amd64?checksum=sha256:92d6fc71dfb49f355881915a14a8d9b5a11ac41ab89b6873191e0a56c9be4ce2 pryzmd
     mkdir -p $HOME/go/bin
-    mv pryzmd-0.10.0-linux-amd64 $HOME/go/bin/pryzmd
+    mv pryzmd $HOME/go/bin/pryzmd
     source $HOME/.bash_profile
 elif [ "$MIMARI" = "aarch64" ]; then
     # ARM64 mimarisi için
